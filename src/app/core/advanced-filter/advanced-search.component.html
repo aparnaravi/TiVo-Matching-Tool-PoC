@@ -1,0 +1,49 @@
+<mat-card class="advancedSearch-card">
+  <div class="advancedSearch-action">
+    <button mat-button (click)="saveSearch()" color="accent">Apply & Save </button>
+    <button mat-button (click)="clearAllFilter()" color="accent">Clear All</button>
+    <button mat-button (click)=applyFilter() color="accent">Apply</button>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <mat-list *ngFor="let field of advancedSearchFieldList">
+      <h3 mat-subheader>{{field.displayName}}</h3>
+      <div class="advancedSearch-list">
+
+        <mat-form-field class="search-option" appearance="outline">
+          <mat-select (selectionChange)="onSelectionChange($event, field)" [(ngModel)]="field.selectedFieldId">
+            <mat-option *ngFor="let filterType of field.advancedSearchFields" [value]="filterType.id" [id]="filterType.operator">{{filterType.displayName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="search-value" *ngIf="field.dataType =='DATE' && field.hasValueExpression" appearance="outline">
+          <mat-label>Search {{field.displayName}}</mat-label>
+          <input (dateChange)="addEvent('change', $event, field)" placeholder="Add value to filter" matInput
+            [(ngModel)]="field.value" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <br />
+        <mat-form-field class="search-value" *ngIf="field.dataType =='DATE' && field.hasValueExpression && hasBetween"
+          appearance="outline">
+          <mat-label></mat-label>
+          <input [min]="field.value" [disabled]="!field.value" matInput [(ngModel)]="field.secondValue" [matDatepicker]="secondDate">
+          <mat-datepicker-toggle matSuffix [for]="secondDate"></mat-datepicker-toggle>
+          <mat-datepicker #secondDate></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="search-value" *ngIf="field.dataType =='STRING' && field.hasValueExpression" appearance="outline">
+          <mat-label>Search {{field.displayName}}</mat-label>
+          <input placeholder="Add value to filter" matInput [(ngModel)]="field.value">
+        </mat-form-field>
+
+        <mat-form-field class="search-value" *ngIf="field.dataType =='NUMBER' && field.hasValueExpression" appearance="outline">
+          <mat-label>Search {{field.displayName}}</mat-label>
+          <input type="number" placeholder="Add value to filter" matInput [(ngModel)]="field.value">
+        </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+</mat-card>

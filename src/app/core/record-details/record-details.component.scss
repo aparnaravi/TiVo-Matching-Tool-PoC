@@ -1,0 +1,266 @@
+@import '../../../sass/variables';
+
+.record-match-breadcrumb,
+.record-match-action-bar {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    height: 55px;
+}
+
+.record-match-area {
+    display: flex;
+}
+
+.record-area-heading {
+    width: 100%;
+    margin: 5px
+}
+
+.record-actions-holder,
+.record-actions-holder .action-item {
+    display: flex;
+    margin: 6px 18px;
+    flex-flow: row wrap;
+}
+
+.left {
+    flex: 1;
+    margin-top: 20px;
+}
+
+.record-match-action-bar .title {
+    line-height: 25px;
+}
+
+.main-heading {
+    color: $dark-color;
+    font-size: 20px;
+}
+
+.sub-heading {
+    color: $secondary-text-color;
+    font-size: 16px;
+}
+
+.light-font {
+    color: $divider-color;
+    font-size: 14px;
+}
+
+.title {
+    color: $divider-color;
+    ;
+    font-weight: 400;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.record-match-area {
+    display: flex;
+}
+
+.value {
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+.action-buttons-container button {
+    margin: 10px;
+}
+
+::ng-deep button.raised-btn span {
+    color: $primary-color-text;
+}
+
+.record-details-main-content {
+    margin: 125px 0 0 0;
+    // margin: 100px 40px;
+}
+
+.alert-action {
+    margin-left: 28px;
+}
+
+/deep/ #recordDetailsTab div.mat-tab-labels div:nth-last-child(1) {
+    flex: 1;
+    padding: 0 10px !important;
+
+    div:nth-last-child(1) {
+        flex: 1;
+        justify-content: flex-end;
+    }
+}
+
+.alert-timeDisplay {
+    text-align: right;
+    margin-right: 45px;
+}
+
+/deep/ #recordDetailsTab .mat-ink-bar {
+    background: $tangerine !important;
+    height: 3px !important;
+    border-radius: 2px;
+}
+
+/deep/.alert-timeDisplay button span {
+    text-decoration: underline;
+}
+
+.info-page-wrapper {
+    height: 60vh;
+    // overflow: auto;
+}
+
+.record-details-sub-content {
+    margin: 0 12px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.main-content-wrapper {
+    margin: 0 35px;
+}
+
+.left-column {
+    flex: 1
+}
+
+.right-column {
+    flex: 2;
+}
+
+.download-tab {
+    margin-left: 230px;
+}
+
+.card {
+    margin: 2% 5% 2% 1%;
+    border: 1px solid $divider-color;
+    padding-bottom: 8px;
+    .card-heading {
+        margin-bottom: 2% !important;
+    }
+
+    .row-content div {
+        margin-bottom: 8px !important;
+    }
+}
+
+.card-heading {
+    color: $secondary-text-color;
+    font-size: 16px;
+    margin-bottom: 4%;
+}
+
+.downloadBtn {
+    text-align: right;
+    margin-right: 2%;
+}
+
+.info-heading {
+    font-size: 12px;
+    color: $secondary-text-color;
+}
+
+.action-desc {
+    padding-top: 10px;
+}
+
+.info-content {
+    font-size: 14px;
+}
+
+.row-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.filter {
+    text-align: right;
+    flex: 0 !important;
+    margin-top: 1%;
+    margin-bottom: 2% !important;
+}
+
+.row-content div {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.row-content div button {
+    width: 100%
+}
+
+.view-match {
+    color: $accent-color;
+}
+
+.activity-heading {
+    margin: 2%;
+    font-size: 24px;
+    color: $secondary-text-color;
+}
+
+.alert-row-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    background-color: $warn-color;
+    margin-top: 6px;
+}
+
+.alert-row-content div {
+    flex: 1;
+    color: #f5f5f5;
+}
+
+.alert-row-content button {
+    color: #f5f5f5;
+}
+
+.right-column mat-card {
+    margin: 2% 2% 5% 1%;
+}
+// .new-rec{
+//     background-color:$accent-color !important;
+// }
+.divider {
+    border-left: 1px solid $dark-color;
+}
+
+.notes-content {
+    max-height: 550px;
+    overflow-y: auto !important;
+}
+
+.card-action-buttons {
+    button {
+        width: 20% !important;
+    }
+
+    color: $accent-color;
+    padding: 0px !important;
+    flex:0.5 !important;
+    margin-left: 30% !important;
+
+    div {
+        width: 2%;
+    }
+}
+
+.edit-icon {
+    font-size: 20px !important;
+}

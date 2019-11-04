@@ -1,0 +1,147 @@
+<div class="inbox-main-content">
+  <app-bread-crumb></app-bread-crumb>
+
+  <mat-drawer-container class="inbox-container" [hasBackdrop]="mobileQuery.matches ? 'true' : 'false'">
+    <mat-drawer  class="sideNavDrawer" #sidenavDrawer  [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches? false : true">
+      <div class="side-nav-content">
+        <h2 class="heading">Activity Feed</h2><br />
+        <h3 class="heading">Filter</h3>
+
+        <div class="menu-container activity-chip" [ngClass]="{'sideNavActiveMenu':(!isSideNavFilter && selectedSearchOptions.length==0)  }">
+          <a class="menu-item" matTooltip="Show All Activity Feed" (click)="resetInbox()">All Activity</a>
+
+        </div>
+        <mat-nav-list>
+          <div *ngFor="let menu of menus" matTooltip="{{menu.toolTip}}" class="menu-container" [ngClass]="{'sideNavActiveMenu':(sideNavFilterValue==menu.val && isSideNavFilter)  }">
+            <a class="menu-item" (click)="sideNavFilter(menu.val)">{{menu.val}}</a>
+          </div>
+          <a>
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    All Saved Filters
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div *ngIf="savedSearchData.length>0">
+                  <mat-selection-list id="selection-list" #list [(ngModel)]="selectedSearchOptions" (ngModelChange)="onSavedSelectOptionChange($event)">
+                    <mat-list-option *ngFor="let savedData of savedSearchData" [value]="savedData">
+                      {{savedData.fieldName}} {{savedData.operator}} {{savedData.value}}
+                    </mat-list-option>
+                  </mat-selection-list>
+                </div>
+                <div *ngIf="savedSearchData.length==0" class="no-filter">No saved filters to show!</div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </a>
+          <hr />
+        </mat-nav-list>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="page-content">
+        <app-inbox-action [selectedRecordsList]="selectedRows"></app-inbox-action>
+        <mat-card>
+          <mat-drawer-container [hasBackdrop]="mobileQuery.matches ? 'true' : 'false'">
+            <mat-drawer #advancedSearchdrawer [mode]="mobileQuery.matches ? 'over' : 'side'" [(opened)]="advancedFilterOpened">
+              <app-advanced-search (savedSearch)="savedSearchEvent($event)" (sideNavFilterForInbox)="sidenavEvent($event)"
+                (searchInbox)="advancedSearch($event)"  *ngIf="selectedInboxConfig" (savedSearchUpdateEvent)="savedSearchUpdateEvent($event)"
+                [selectedInboxConfig]="selectedInboxConfig" [filterList]="" [currentActiveSavedFilterList]="selectedSearchOptions"></app-advanced-search>
+            </mat-drawer>
+            <mat-drawer-content>
+              <div>
+                <div class="gridHeader">
+                  <div class="gridAction actionIcons">
+                    <button id="advanced-search-filter" matTooltip="Show SideBar" mat-icon-button (click)="sidenavDrawer.toggle()" *ngIf="mobileQuery.matches">
+                      <mat-icon>menu</mat-icon>
+                    </button>
+                    <button id="advanced-search-filter" matTooltip="Advanced Filters" mat-icon-button (click)="advancedSearchdrawer.toggle()">
+                      <mat-icon>filter_list</mat-icon>
+                    </button>
+                    <button class="
+                        icon-btn" matTooltip="Reset Filters" mat-icon-button
+                      (click)="resetInbox()">
+                      <mat-icon>refresh</mat-icon>
+                    </button>
+                  </div>
+                  <div class="simpleSearchGrid">
+                    <mat-form-field appearance="legacy" class="simpleSearch">
+                      <mat-label>Filter records by any of the below fields</mat-label>
+                      <input matInput [(ngModel)]='searchInputValue' (keyup)="applyInputFilter($event)">
+                      <button matTooltip="Clear" mat-icon-button matSuffix>
+                        <mat-icon matSuffix (click)="clearSimplesearch()" *ngIf="searchInputValue && searchInputValue.length"
+                          matSuffix>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                    <button matTooltip="Search" mat-button (click)="applyInputFilter('click')" mat-mini-fab color="primary"
+                      [disabled]="!searchInputValue">
+                      <mat-icon>search</mat-icon>
+                    </button>
+                  </div>
+                  <div class="paginationSection">
+                    <mat-paginator #paginator [length]="totalNoOfInboxData" [pageSize]="pageObj.pageSize"
+                      [pageSizeOptions]="[5, 10, 25, 50, 100]" [showFirstLastButtons]="true">
+                    </mat-paginator>
+                  </div>
+
+                </div>
+                <div class="gridHeader">
+                  <div class="gridAction actionIcons">
+                    <div *ngIf="(advancedSearchFilterList && advancedSearchFilterList.length > 0)|| (isSideNavFilter) ||(savedFilterList && savedFilterList.length>0)"
+                      class="advanced-search-chiklet">
+                      <app-chicklet [SideNavFilter]="sideNavFilterValue" [isActiveSidenav]="isSideNavFilter"
+                        [filterList]="advancedSearchFilterList" [savedFilterList]="savedFilterList"></app-chicklet>
+                    </div>
+                  </div>
+                </div>
+
+                <mat-table #table [dataSource]="inboxData" matSort [matSortActive]="defaultSort.name"
+                  [matSortDirection]="defaultSort.sortType">
+                  <ng-container *ngFor="let col of inboxColumnConfig; let colIndex = index" [matColumnDef]="col.name">
+                    <div *ngIf="col.name=='select'">
+                      <mat-header-cell class="select-cell" *matHeaderCellDef>
+                        <mat-checkbox color="accent" (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()" *ngIf="inboxData.data.length">
+                        </mat-checkbox>
+                      </mat-header-cell>
+                      <mat-cell class="select-cell" *matCellDef="let row">
+                        <mat-checkbox color="accent" (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)">
+                        </mat-checkbox>
+                      </mat-cell>
+                    </div>
+                    <div *ngIf="col.name!='select'">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!col.isSortable">{{col.title}}</mat-header-cell>
+                      <mat-cell *matCellDef="let row">
+                        <div *ngIf="col.name=='Flag'" matTooltip="Noticible Record">
+                          <mat-icon *ngIf="row.IsFlagged">outlined_flag</mat-icon>
+                          <mat-icon class="error-icon" *ngIf="row.VerificationNeeded">error_outline</mat-icon>
+                        </div>
+                        <div *ngIf="row.VerificationNeeded && col.name=='Action'"> <a mat-button class="linkColor verified-action"  (click)="openRecordDetails(row,col.name)">{{
+                            getProperty(row, col.name) }}</a> </div>
+                        <!-- <div *ngIf="DATATYPES.DATE == col.dataType">{{ converToLocalDate(row, col.name) |
+                      date:'MM/dd/yy'}}</div> -->
+                        <div *ngIf="((!col.isLink) &&(!(row.VerificationNeeded && col.name=='Action')))" matTooltip="{{ getProperty(row,
+                                          col.name) }}">{{
+                          getProperty(row, col.name) }}</div>
+                        <div *ngIf="col.isLink">
+                          <a mat-button class="linkColor" (click)="openRecordDetails(row,col.name)">{{ getProperty(row,
+                            col.name)
+                            }}</a>
+                        </div>
+                      </mat-cell>
+                    </div>
+                  </ng-container>
+                  <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </mat-row>
+                </mat-table>
+              </div>
+            </mat-drawer-content>
+          </mat-drawer-container>
+        </mat-card>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

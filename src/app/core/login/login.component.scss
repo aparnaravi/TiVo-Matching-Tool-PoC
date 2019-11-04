@@ -1,0 +1,44 @@
+@import '../../../sass/variables';
+
+.login-container {
+  height: 100%;
+  width: 40%;
+  margin: 7% auto 0;
+}
+
+.login-container mat-card {
+  text-align: center;
+  width: 400px;
+  margin: auto;
+  top: 10%;
+}
+
+.registerBtn {
+  color: $accent-color
+}
+.mat-card{
+  box-shadow: none!important;
+}
+.sub-heading {
+  color: $secondary-text-color
+}
+
+.login-heading {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+::ng-deep .login-button span{
+  color:$primary-color-text;
+}
+.login-container .login-form-field,
+.login-button {
+   width: 100%;
+}
+
+.login-container .login-action {
+  margin: 15px 0 25px 0;
+}
+
+.heading-container {
+  line-height: 40px;
+}

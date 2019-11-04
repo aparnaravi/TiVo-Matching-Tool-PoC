@@ -1,0 +1,39 @@
+@import '../../../../sass/variables';
+
+.chicklet-list {
+  font-size: 12px;
+
+  button {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 20px;
+
+    mat-icon {
+      font-size: 12px;
+    }
+  }
+}
+
+mat-chip {
+  font-size: 12px;
+}
+
+mat-chip:hover {
+  text-decoration: line-through;
+}
+
+.savedFilterChicklet {
+  color: $primary-color-text !important;
+  background-color: gray !important;
+}
+
+.SideNavFilterChicklet {
+  color: $primary-color-text !important;
+  background-color: silver !important;
+}
+.chicklet-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

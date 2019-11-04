@@ -1,0 +1,162 @@
+<!-- <app-inbox-header [viewDetails]='recordDetails'></app-inbox-header> -->
+<div class="user-details-main-content">
+<app-bread-crumb [breadCrumbFor]="User"></app-bread-crumb>
+<div class="user-details-sub-content">
+<div class="record-match-action-bar">
+  <div class="record-actions-holder left">
+    <div class="action-item"><span class="user-key">Team: </span><span class="user-details">Teamname</span></div>
+    <div class="action-item"><span class="user-key">Access: </span><span class="user-details">Administrator</span></div>
+  </div>
+  <div class="record-actions-holder right">
+    <div class="action-item action-buttons-container action-btns user-details-action-btns" >
+      <button mat-stroked-button color="primary" (click)="shareDetails()">SHARE</button>
+      <button mat-raised-button color="primary" class="raised-btn" (click)= "goToRecordMatch()">VIEW MATCHES</button>
+    </div>
+  </div>
+</div>
+<div class="main-content-wrapper">
+  <div class="record-area-heading">
+    <span class="main-heading">Angel Merced</span><br /><br />
+    <span class="sub-heading"><span class="user-key">Created</span>: 12/23/2018</span>
+  </div>
+  <div class='info-page-wrapper'>
+    <div class='row'>
+      <div class='left-column'>
+        <mat-card class="card">
+          <div class="card-heading">User Information</div>
+          <div class="card-info">
+            <div class="row-content">
+              <div>
+                <span class="info-heading">First Name</span><br />
+                <span class="info-content">Angel </span>
+              </div>
+              <div>
+                <span class="info-heading">Last Name</span><br />
+                <span class="info-content">Merced</span>
+              </div>
+            </div>
+            <div class="row-content">
+              <div>
+                <span class="info-heading">Email</span><br />
+                <span class="info-content">angel.merced@gmail.com</span>
+              </div>
+            </div>
+            <div class="row-content">
+              <div>
+                <span class="info-heading">Phone</span><br />
+                <span class="info-content">(141) 245-2456</span>
+              </div>
+            </div>
+            <div class="row-content">
+              <div>
+                <span class="info-heading">Last Login</span><br />
+                <span class="info-content">12/23/18</span>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+        <mat-card class="card">
+          <div class="card-heading">User Statistics</div>
+          <div class="card-info">
+            <div class="row-content">
+              <div>
+                <span class="info-heading">Assignments Completed</span><br />
+                <span class="info-content">1</span>
+              </div>
+
+            </div>
+            <div class="row-content">
+              <div>
+                <span class="info-heading">Total Assignments</span><br />
+                <span class="info-content">2</span>
+              </div>
+
+            </div>
+            <div class="row-content">
+              <div>
+                <span class="info-heading">Average assignment rate</span><br />
+                <span class="info-content">not enough data</span>
+              </div>
+
+            </div>
+            <div class="row-content">
+              <div>
+                <span class="info-heading">Average speed by hour</span><br />
+                <span class="info-content">500/hr</span>
+              </div>
+
+            </div>
+
+          </div>
+        </mat-card>
+      </div>
+      <div class='right-column'>
+        <mat-tab-group id="userDetailsTab">
+          <mat-tab label="Activity">
+            <div class="row-content">
+              <div class="activity-heading">December 2018</div>
+              <div class="filter">
+                <button mat-button color="primary">Filter<mat-icon>tune</mat-icon></button>
+              </div>
+            </div>
+            <mat-card class="right-col-card">
+              <div class="card-info">
+                <div class="row-content">
+                  <div class="sub-header">
+                    <p>Angel Merced completed assignment for #9839302 <span class="light-font"><br>Dec 23
+                        at 5:55 PM EST</span></p>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+            <mat-card class="right-col-card">
+              <div class="card-info">
+                <div class="row-content">
+                  <div class="sub-header">
+                    <p>User Registered <span class="light-font"><br>Dec 23
+                        at 5:55 PM EST</span></p>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </mat-tab>
+          <mat-tab label="Assignments">
+              <div class="row-content">
+                  <div class="activity-heading">December 2018</div>
+                  <div class="filter">
+                    <button mat-button color="primary">Filter<mat-icon>tune</mat-icon></button>
+                  </div>
+                </div>
+                <mat-card class="right-col-card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-header">
+                        <p>Angel Merced completed assignment for #9839302 <span class="light-font"><br>Dec 23
+                            at 5:55 PM EST</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+                <mat-card class="right-col-card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-header">
+                        <p>User Registered <span class="light-font"><br>Dec 23
+                            at 5:55 PM EST</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+          </mat-tab>
+          <mat-tab disabled>
+              <ng-template mat-tab-label>
+                  <button mat-stroked-button color="primary" (click)="onDownloadClick()" >DOWNLOAD</button>
+              </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,141 @@
+@import './../../../sass/variables';
+@import '../../../sass/app-theme';
+
+.app-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+.app-toolbar,
+.app-container app-register {
+    margin: 0 auto !important;
+}
+
+.app-container img {
+    height: 25px !important;
+    width: 20px !important;
+}
+
+.app-toolbar {
+    background-color: $primary-color !important;
+    height: 125px;
+    font-weight: 300;
+    padding: 5px 0 0 50px;
+}
+
+.app-toolbar.miniHeader {
+    height: 80px !important;
+}
+
+.app-is-mobile .app-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+
+.app-name {
+    font-size: 20px;
+    margin: 0 20px;
+    color: $primary-color-text;
+}
+
+.user-details {
+    font-size: 14px;
+}
+
+mat-nav-list {
+    padding: 0px !important;
+    font-size: 14px;
+    color: $divider-color;
+    flex: 18;
+    a {
+        padding: 15px;
+    }
+    a.active {
+        color: $primary-color-text;
+        background-color: $primary-color-dark;
+        border-bottom: 2px solid $primary-color-light;
+        -webkit-transition: background-color 0.5s ease-out;
+        -moz-transition: background-color 0.5s ease-out;
+        -o-transition: background-color 0.5s ease-out;
+        transition: background-color 0.5s ease-out;
+    }
+    a:hover {
+        color: $primary-color-text;
+    }
+}
+
+.header-buttons {
+    background-color: $primary-color !important;
+    //padding-left: 50px;
+    padding-bottom: 1px;
+    cursor: pointer;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.flex-col {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.flex-g-xs {
+    flex-grow: 0.5;
+}
+
+span.header-action {
+    color: $primary-color-text;
+    margin: 16px 0 0 30px;
+}
+
+span.header-action mat-icon {
+    font-size: 30px !important;
+}
+
+.flex-app-brand {
+    flex: 12;
+    display: inline-flex;
+}
+
+.header-action {
+    cursor: pointer;
+}
+
+.flex-profile-section {
+    flex: 1;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.profile {
+    color: $primary-color-text;
+    flex: 1;
+}
+
+.divider {
+    border-left: 1px solid $divider-color;
+    color: $primary-color-text;
+}
+
+.notf-shown mat-icon {
+    color: $divider-color !important;
+}
+
+.divider span {
+    margin-left: 15px;
+}
+

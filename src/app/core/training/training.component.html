@@ -1,0 +1,35 @@
+<!-- <div class="assignment-container " (scroll)="onScroll($event)"> -->
+<div class="assignment-container " >
+  <mat-card class="card-container" >
+    <div class="mat-card-custom-header">
+      <div class="heading-container" >
+        <div class="login-heading">TiVo Training</div>
+        <div *ngFor="let count of pointCount" class="timeline-block">
+          <div class="point">
+            <svg height="50" width="50" class="timeline-line">
+              <line x1="0" x2="50" y1="0" y2="0" *ngIf="count!=pointCount.length"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-tab-group class="content" >
+      <div *ngFor="let data of tabData">
+        <mat-tab label="{{data.name}}">
+          <div class="flex-row">
+            <div *ngFor="let carddata of data.value" class="card-spacing">
+            <mat-card class="card-content" >
+              <mat-card-content>
+                  {{carddata.name}}
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-stroked-button class="actionBtn">START</button>
+              </mat-card-actions>
+            </mat-card>
+            </div>
+          </div>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+  </mat-card>
+</div>

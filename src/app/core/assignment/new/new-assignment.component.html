@@ -1,0 +1,60 @@
+<div class="assignment-container content">
+  <mat-card>
+    <div>
+      <div class="heading-container">
+        <span class="login-heading">New Assigment</span>
+        <div class="sub-heading">
+          <p>Enter assignment below to get started.</p><br />
+          <p class="instructions">
+            You can find asssignment in the email sent to you from one of our team members.Dont see the email? <button
+              class="resendBtn" mat-button>Resend email assignment</button>
+          </p>
+          <br />
+          <div class="disclaimer">Not seeing your assignment in the list? <button mat-button>Contact one of our team
+              members</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="">
+        <div class="form-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Source</mat-label>
+            <mat-select placeholder="Source">
+              <mat-option *ngFor="let source of source" [value]="source.value">
+                {{source.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <mat-grid-list cols="12" class="form-container">
+          <div class="form-item">
+            <mat-checkbox></mat-checkbox><span>&nbsp; &nbsp; Unmatched Records</span>
+          </div>
+        </mat-grid-list>
+        <mat-grid-list cols="12" class="form-container">
+          <div class="form-item">
+            <mat-checkbox></mat-checkbox><span>&nbsp; &nbsp; Unverified Matches</span>
+          </div>
+        </mat-grid-list>
+      </div>
+      <hr />
+      <br />
+      <div class="">
+        <mat-grid-list cols="12" class="form-container">
+          <div class="disclaimer">
+            <div class="form-item-disclaimer sub-heading">
+              <mat-checkbox >
+              </mat-checkbox>
+              <span>&nbsp; &nbsp; I acknowledge that if I do not select the correct assignment,I may notget paid for my
+                time</span>
+            </div>
+          </div>
+        </mat-grid-list>
+        <mat-grid-list cols="12" class="login-action">
+          <button mat-raised-button color="primary" class="login-button" (click)="goToRecordMatch()">START</button>
+        </mat-grid-list>
+      </div>
+    </div>
+  </mat-card>
+</div>

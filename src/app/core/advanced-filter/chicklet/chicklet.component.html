@@ -1,0 +1,72 @@
+<div *ngIf="filterList && filterList.length && filterList.length > 0">
+  <mat-chip-list class="chicklet-list">
+    <span *ngFor="let filter of filterList">
+      <mat-chip color="primary" *ngIf="filter.value && (filter.dataType=='DATE')">{{filter.fieldName}}: {{filter.value
+        | date: 'MM/dd/yyyy'}}
+        <button matTooltip="Clear" mat-icon-button>
+          <mat-icon (click)="removeAdvancedSearchFilter(filter)">close</mat-icon>
+        </button>
+      </mat-chip>
+      <mat-chip color="primary" *ngIf="filter.value && (filter.dataType!='DATE')">{{filter.fieldName}}:
+        {{filter.value}}
+        <button matTooltip="Clear" mat-icon-button>
+          <mat-icon (click)="removeAdvancedSearchFilter(filter)">close</mat-icon>
+        </button>
+      </mat-chip>
+
+      <mat-chip color="primary" *ngIf="filter.isRange && (filter.dataType=='DATE')">{{filter.fieldName}}: {{filter.from
+        | date: 'MM/dd/yyyy'}} - {{filter.to | date: 'MM/dd/yyyy'}}
+        <button matTooltip="Clear" mat-icon-button>
+          <mat-icon (click)="removeAdvancedSearchFilter(filter)">close</mat-icon>
+        </button>
+      </mat-chip>
+    </span>
+  </mat-chip-list>
+</div>
+
+<div *ngIf="savedFilterList && savedFilterList.length && savedFilterList.length > 0">
+  <mat-chip-list class="chicklet-list" >
+    <span *ngFor="let filter of savedFilterList">
+      <mat-chip class="savedFilterChicklet" *ngIf="filter.value && (filter.dataType=='DATE')">{{filter.fieldName}}: {{filter.value
+        | date: 'MM/dd/yyyy'}}
+        <button matTooltip="Clear" mat-icon-button>
+          <mat-icon (click)="removeSavedSearchFilter(filter)">close</mat-icon>
+        </button>
+      </mat-chip>
+      <mat-chip class="savedFilterChicklet" *ngIf="filter.value && (filter.dataType!='DATE')">{{filter.fieldName}}:
+        {{filter.value}}
+        <button matTooltip="Clear" mat-icon-button>
+          <mat-icon (click)="removeSavedSearchFilter(filter)">close</mat-icon>
+        </button>
+      </mat-chip>
+
+      <mat-chip class="savedFilterChicklet" *ngIf="filter.isRange && (filter.dataType=='DATE')">{{filter.fieldName}}: {{filter.from
+        | date: 'MM/dd/yyyy'}} - {{filter.to | date: 'MM/dd/yyyy'}}
+        <button matTooltip="Clear" mat-icon-button>
+          <mat-icon (click)="removeSavedSearchFilter(filter)">close</mat-icon>
+        </button>
+      </mat-chip>
+    </span>
+  </mat-chip-list>
+</div>
+
+
+<div *ngIf="SideNavFilter=='Flagged' && isActiveSidenav">
+  <mat-chip-list class="chicklet-list">
+    <mat-chip class="SideNavFilterChicklet">Flagged Records only
+      <button matTooltip="Clear" mat-icon-button>
+        <mat-icon (click)="removeFilter('Flagged')">close</mat-icon>
+      </button>
+    </mat-chip>
+  </mat-chip-list>
+</div>
+
+<div *ngIf="SideNavFilter=='Accepted Matches' && isActiveSidenav">
+  <mat-chip-list class="chicklet-list">
+    <mat-chip class="SideNavFilterChicklet">Accepted Records only
+      <button matTooltip="Clear" mat-icon-button>
+        <mat-icon (click)="removeFilter('Accepted Matches')">close</mat-icon>
+      </button>
+    </mat-chip>
+  </mat-chip-list>
+</div>

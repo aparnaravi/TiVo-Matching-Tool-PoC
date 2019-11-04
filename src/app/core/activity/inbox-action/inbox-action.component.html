@@ -1,0 +1,14 @@
+<div class="action-buttons">
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="actions">ACTION<mat-icon>keyboard_arrow_down</mat-icon></button>
+    <button mat-raised-button color="primary" (click)="onDownloadClick()">DOWNLOAD<mat-icon>vertical_align_bottom</mat-icon></button>
+</div>
+<mat-menu #actions="matMenu">
+    <button mat-menu-item (click)="onActionClick()">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+    </button>
+    <button mat-menu-item (click)="onActionClick()">
+        <mat-icon>delete_outline</mat-icon>
+        <span>Delete</span>
+    </button>
+</mat-menu>

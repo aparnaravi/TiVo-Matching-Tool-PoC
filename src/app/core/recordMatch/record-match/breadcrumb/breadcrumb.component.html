@@ -1,0 +1,7 @@
+<div class="breadcum">
+  <div *ngFor="let breadcum of breadcrumbs; let key = index">
+    <button mat-button [color]="breadcum.color">
+      {{breadcum.title}} </button>
+    <mat-icon *ngIf='!breadcum.selected' class="material-icons">chevron_right</mat-icon>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './sass/app-theme';
+@import './sass/variables';
+@import './sass/acron.flex.scss';
+@font-face {
+    font-family: 'Avenir LT Std Roman';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std Roman'), url('assets/font/AvenirLTStd/AvenirLTStd-Roman.woff') format("opentype");
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 55 Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 55 Oblique'), url('assets/font/AvenirLTStd/AvenirLTStd-Oblique.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 35 Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 35 Light'), url('assets/font/AvenirLTStd/AvenirLTStd-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 35 Light Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 35 Light Oblique'), url('assets/font/AvenirLTStd/AvenirLTStd-LightOblique.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 45 Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 45 Book'), url('assets/font/AvenirLTStd/AvenirLTStd-Book.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 45 Book Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 45 Book Oblique'), url('assets/font/AvenirLTStd/AvenirLTStd-BookOblique.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 65 Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 65 Medium'), url('assets/font/AvenirLTStd/AvenirLTStd-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 65 Medium Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 65 Medium Oblique'), url('assets/font/AvenirLTStd/AvenirLTStd-MediumOblique.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 85 Heavy';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 85 Heavy'), url('assets/font/AvenirLTStd/AvenirLTStd-Heavy.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 85 Heavy Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 85 Heavy Oblique'), url('assets/font/AvenirLTStd/AvenirLTStd-HeavyOblique.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 95 Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 95 Black'), url('assets/font/AvenirLTStd/AvenirLTStd-Black.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir LT Std 95 Black Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir LT Std 95 Black Oblique'), url('assets/font/AvenirLTStd/AvenirLTStd-BlackOblique.woff') format('woff');
+}
+
+* {
+    font-family: Avenir LT Std Roman, sans-serif;
+  }

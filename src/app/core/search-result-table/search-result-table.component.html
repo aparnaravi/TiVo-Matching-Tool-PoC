@@ -1,0 +1,82 @@
+<h1 mat-dialog-title class="serch-tab-header"> Search Program Records <mat-icon (click)="close()">close</mat-icon>
+</h1>
+<div class="serch-tab-header-row">
+  <span class="header-heading">
+    <button mat-button>
+      <mat-icon (click)="goBack()">chevron_left</mat-icon>
+    </button>
+    <button mat-button (click)="goBack()">
+      Back to Search
+    </button>
+  </span>
+</div>
+<hr />
+
+<div class="serch-tab-header-row">
+  <span class="sub-heading ">Search Results</span>
+  <span class="header-filter">
+    <button mat-stroked-button color="primary" cdkFocusInitial>Filter<mat-icon>keyboard_arrow_down</mat-icon></button>
+  </span>
+</div>
+<mat-card class="tab-card">
+  <mat-card-content>
+    <div class="paginationSection">
+      <mat-paginator #paginator [length]="totalNoOfInboxData" [pageSize]="pageObj.pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]"
+        [showFirstLastButtons]="true">
+      </mat-paginator>
+    </div>
+    <mat-table #serchtable [dataSource]="serachResultData" matSort [matSortActive]="defaultSort.name"
+      [matSortDirection]="defaultSort.sortType">
+      <ng-container *ngFor="let col of inboxColumnConfig; let colIndex = index" [matColumnDef]="col.name">
+        <div *ngIf="col.name=='select'">
+          <mat-header-cell class="select-cell" *matHeaderCellDef>
+            <mat-checkbox color="accent" (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()" *ngIf="serachResultData.data.length">
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell class="select-cell" *matCellDef="let row">
+            <mat-checkbox color="accent" (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </mat-cell>
+        </div>
+        <div *ngIf="col.name!='select'">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!col.isSortable">{{col.title}}</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+
+            <div *ngIf=" (!col.isLink) && (col.name!='Type') " matTooltip="{{ getProperty(row,
+                                          col.name) }}">{{
+              getProperty(row, col.name) }}</div>
+
+              <div *ngIf=" (!col.isLink) && (col.name=='Type') " matTooltip="{{ getObjProperty(row,
+                col.name) }}">{{
+                  getObjProperty(row, col.name) }}</div>
+
+              <div *ngIf="col.isLink && (row.MatchScore>=80)">
+              <mat-chip class="successful">{{ getProperty(row, col.name)
+                }}%Match</mat-chip>
+            </div>
+
+            <div *ngIf="col.isLink && (row.MatchScore<60)">
+              <mat-chip class="alertt">{{ getProperty(row, col.name)
+                }}%Match</mat-chip>
+            </div>
+
+            <div *ngIf="col.isLink && (row.MatchScore<80) && (row.MatchScore>=60)">
+                <mat-chip class="warning">{{ getProperty(row, col.name)
+                  }}%Match</mat-chip>
+              </div>
+          </mat-cell>
+        </div>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  </mat-card-content>
+
+  <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="close()">CANCEL</button>
+      <button mat-raised-button  class="rightbtn"  (click)="compareSelectedRecords()">COMPARE</button>
+    </mat-card-actions>
+</mat-card>

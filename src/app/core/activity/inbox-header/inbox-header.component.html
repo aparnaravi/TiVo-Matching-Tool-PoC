@@ -1,0 +1,11 @@
+<nav mat-tab-nav-bar class="inbox-header">
+  <div class="header-flex-row">
+    <a mat-tab-link *ngFor="let link of links" (click)="navElementClick(link)" [active]="activeLink == link"> {{link}}
+    </a>
+    <a>Help</a>
+  </div>
+</nav>
+
+<!-- <app-record-match *ngIf="activeLink=='Record Match'"></app-record-match> -->
+<app-inbox  *ngIf="activeLink=='Activity' && viewDetails!='recordDetails'"></app-inbox>
+

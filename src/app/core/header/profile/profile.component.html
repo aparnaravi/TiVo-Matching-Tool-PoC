@@ -1,0 +1,14 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon class="accountIcon">account_circle</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <!-- <button mat-menu-item (click)="goToAssignment()">
+    <span>My Assignments</span>
+  </button> -->
+  <button mat-menu-item (click)="goToTraining()">
+    <span>Training</span>
+  </button>
+  <button mat-menu-item (click)="goToLogin()">
+    <span>Log out</span>
+  </button>
+</mat-menu>

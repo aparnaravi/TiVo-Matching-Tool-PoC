@@ -1,0 +1,125 @@
+<h1 mat-dialog-title class="serch-form-header"> Search Program Records <mat-icon (click)="close()">close</mat-icon>
+</h1>
+<div class="serch-header-row">
+  <span class="header-heading">
+    <mat-checkbox  [(ngModel)]="isAutopopulate" (change)="autoPopulateForm($event)"></mat-checkbox><span>&nbsp; &nbsp;Auto-populate-search</span>
+
+  </span>
+</div>
+<hr />
+<mat-card class="form-card" >
+  <mat-card-content color="primary">
+    <div class="serch-flex-row">
+      <div>
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Parent ID</mat-label>
+          <input matInput type="text" placeholder="parentID"  [(ngModel)]="parentId" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Cosmo ID</mat-label>
+          <input matInput type="text" placeholder="CosmoID"  [(ngModel)]="cosmoId"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Record ID</mat-label>
+          <input matInput type="text" placeholder="RecordID"  [(ngModel)]="recordId"/>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="serch-flex-row">
+      <div>
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Record Type</mat-label>
+          <mat-select  [(ngModel)]="defaultRecordType" placeholder="Record Type">
+              <mat-option *ngFor="let recordType of recordTypes" [value]="recordType">
+                {{recordType}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Record Status</mat-label>
+          <mat-select  [(ngModel)]="defaultStatus" placeholder="Record Type">
+              <mat-option *ngFor="let recordStatus of recordStatus" [value]="recordStatus">
+                {{recordStatus}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="serch-flex-row">
+      <div>
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Record Title</mat-label>
+          <input matInput type="text" placeholder="RecordTitle"  [(ngModel)]="recordTitle" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="serch-flex-row">
+      <div>
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Episode Title</mat-label>
+          <input matInput type="text" placeholder="Episode Title"  [(ngModel)]="episodeTitle" />
+        </mat-form-field>
+      </div>
+      <div class="id-info" >
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Episode Number</mat-label>
+          <input matInput type="number" placeholder="Episode Number"  [(ngModel)]="episodeNumber" />
+        </mat-form-field>
+      </div>
+      <div class="id-info">
+        <mat-form-field class="serch-form-field" appearance="outline">
+          <mat-label>Season Number</mat-label>
+          <input matInput type="number" placeholder="Season Number"  [(ngModel)]="seasonNumber" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="serch-flex-row">
+      <div>
+      <mat-form-field class="serch-form-field" appearance="outline">
+        <mat-label>Series Master</mat-label>
+        <input matInput type="text" placeholder="Series Master"  [(ngModel)]="seriesMaster" />
+      </mat-form-field>
+    </div>
+      <div class="id-info">
+      <mat-form-field class="serch-form-field" appearance="outline">
+        <mat-label>Series Master ID</mat-label>
+        <input matInput type="text" placeholder="Series Master ID"  [(ngModel)]="seriesMasterId" />
+      </mat-form-field>
+    </div>
+    </div>
+    <div class="serch-flex-row">
+      <div>
+      <mat-form-field class="serch-form-field" appearance="outline">
+        <mat-label>Release Year</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="releaseYear">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="serch-form-field" appearance="outline">
+        <mat-label>Air Date</mat-label>
+        <input matInput [matDatepicker]="airDatepicker" placeholder="Choose a date" [(ngModel)]="airDate">
+        <mat-datepicker-toggle matSuffix [for]="airDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #airDatepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="serch-form-field" appearance="outline">
+        <mat-label>Language</mat-label>
+        <input matInput type="text" placeholder="Language"  [(ngModel)]="language" />
+      </mat-form-field>
+    </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+      <button mat-raised-button color="primary"  (click)="close()">CANCEL</button>
+      <button mat-raised-button  class="rightbtn" color="primary" (click)="openSearchTable()">SEARCH</button>
+    </mat-card-actions>
+</mat-card>

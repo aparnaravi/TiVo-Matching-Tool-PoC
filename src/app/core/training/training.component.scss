@@ -1,0 +1,104 @@
+@import '../../../sass/variables';
+@import '../../../sass/app-theme';
+
+.sub-heading {
+    color: $secondary-text-color
+}
+
+.card-container {
+    text-align: center;
+    margin: 3% auto;
+    width:75%;
+}
+
+.login-heading {
+    font-size: 35px;
+    margin-bottom: 10px;
+    margin-left: 35px;
+}
+.assignment-container{
+    height:90vh;
+    overflow: auto;
+}
+.assignment-container .login-form-field,
+.login-button {
+    width: 100%;
+}
+
+.assignment-container .login-action {
+    margin: 15px 0 25px 0;
+}
+
+.heading-container {
+    height: 60px;
+}
+
+.card-spacing{
+    margin:0 1%;
+}
+
+.card-content {
+    border: 1px solid $secondary-text-color;
+    height: 220px;
+    width: 200px;
+    margin: 11% 2%;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+}
+
+.card-content mat-card-content {
+    margin-bottom: 85% !important;
+}
+
+.card-content mat-card-actions button {
+    width: 80%;
+}
+
+.card-container {
+    box-shadow: none !important;
+    margin-top: 10px;
+}
+
+.timeline-block {
+    display: inline-block
+}
+
+
+div.point {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    border: 1px solid $secondary-text-color;
+    margin-right: 15%;
+    margin-left: 48px
+}
+
+.timeline-line {
+    margin-left: 15px;
+    margin-top: 8px;
+}
+
+.timeline-line line {
+    stroke: $secondary-text-color;
+    stroke-width: 4;
+    margin-left: 20px
+}
+
+.timeline-holder li:last-child .timeline-line {
+    display: none;
+}
+
+.sticky {
+    margin-top: -113px;
+    position: fixed;
+}
+.content{
+    position: relative;
+}

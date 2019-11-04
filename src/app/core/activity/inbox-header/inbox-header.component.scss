@@ -1,0 +1,33 @@
+@import '../../../../sass/variables';
+@import '../../../../sass/app-theme';
+nav.inbox-header{
+    background-color: $primary-color !important;
+    width:100%;
+}
+nav.inbox-header a:first-child{
+    margin-left:4%;
+}
+nav.inbox-header a{
+    color: $primary-color-text;
+}
+nav.inbox-header  a:nth-child(4){
+    flex: 6;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 4%;
+
+}
+.inbox-header{
+    ::ng-deep .mat-tab-label-active{
+        background:$dark-color;
+    }
+}
+.header-flex-row {
+    display: flex;
+    flex-basis: 100%;
+}
+ .header-flex-row a{
+    flex: 1;
+    display: inline-flex;
+}

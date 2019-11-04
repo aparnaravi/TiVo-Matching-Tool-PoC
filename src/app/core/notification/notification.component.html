@@ -1,0 +1,89 @@
+<div class="notification-container">
+
+
+  <h1 mat-dialog-title class="notf-main-header"> Notifications <mat-icon matTooltip="close" (click)="close()">close</mat-icon>
+  </h1>
+
+  <div class="header-row" *ngIf="showAllNotifications && !hideAll">
+    <span class="header-heading">Your Notifications</span>
+    <span class="header-filter">
+
+      <button mat-stroked-button color="primary">Filter<mat-icon>keyboard_arrow_down</mat-icon></button>
+    </span>
+
+  </div>
+  <mat-dialog-content>
+    <div *ngIf="showAllNotifications">
+      <div *ngIf='!hideFirstCard'>
+      <div class="row-notf-content"  [ngClass]="{'animate':hideFirstCard}">
+        <mat-card class="card" >
+          <div class="close-icon">
+            <mat-icon (click)="hideNotification('first')">close</mat-icon>
+          </div>
+          <div class="ntf-row-content">
+            <div>
+              <mat-icon class="error">error_outline</mat-icon>
+            </div>
+            <div class="card-heading">
+              Urgent Action</div>
+            <div class="ntf-date">
+              12/28/18
+            </div>
+          </div>
+          <br />
+          <div class="ntf-row-content">
+            <div class="row-data">
+              Record #34534934 needs to be matched in 1 hour
+            </div>
+            <div class="notf-action-btn">
+              <button mat-raised-button class="raised-btn" (click)="goToRecordMatch()">VERIFY MATCH</button>
+            </div>
+          </div>
+        </mat-card>
+        <hr />
+      </div>
+    </div>
+
+    <div *ngIf='!hideSecondCard '>
+      <div class="row-notf-content"  [ngClass]="{'animate':hideSecondCard}">
+        <mat-card class="card" >
+          <div class="close-icon">
+            <mat-icon (click)="hideNotification('second')">close</mat-icon>
+          </div>
+          <div class="ntf-row-content">
+            <div>
+              <mat-icon>outlined_flag</mat-icon>
+            </div>
+            <div class="card-heading">
+              Urgent Action</div>
+            <div class="ntf-date">
+              12/28/18
+            </div>
+          </div>
+          <br />
+          <div class="ntf-row-content">
+            <div class="row-data">
+              Record #54534934 has been flagged for NEI
+            </div>
+            <div class="notf-action-btn">
+              <button mat-raised-button class="raised-btn"  (click)="goToRecordDetails()">REVIEW RECORD</button>
+            </div>
+          </div>
+
+        </mat-card>
+        <hr />
+      </div>
+    </div>
+
+    </div>
+    <div *ngIf="!showAllNotifications || hideAll ">
+      <div class="noNotification">
+        <div class="no-notf-icon">
+          <mat-icon>notifications_none</mat-icon>
+        </div>
+        <div class="no-notf-content"> All caught up!</div>
+      </div>
+    </div>
+
+  </mat-dialog-content>
+</div>

@@ -1,0 +1,440 @@
+<div class="content">
+  <div class="record-match-container">
+    <div class="record-match-breadcrumb">
+      <app-breadcrumb></app-breadcrumb>
+    </div>
+    <br />
+    <div class="record-match-action-bar">
+      <div class="record-actions-holder left">
+        <div class="action-item title">
+          <mat-icon>access_time</mat-icon> Bound
+        </div>
+        <div class="action-item"><span class="title">Status: </span><span class="value">Unverified</span></div>
+        <div class="action-item"><span class="title">Matches: </span><span class="value">{{data.length}} </span></div>
+        <div class="action-item"><span class="title">Record ID: #</span><span class="value">379208</span></div>
+      </div>
+      <div class="record-actions-holder right">
+        <div class="action-item">
+          <span class="title view-grp-name">View:</span>
+          <mat-button-toggle-group name="View" aria-label="View" #viewTypeGroup="matButtonToggleGroup" (change)="onViewTypeChange($event)"
+            [value]="VIEW_TYPES.COLUMN_VIEW">
+            <!-- <div class="toggle-action-col"> -->
+            <mat-button-toggle [value]="VIEW_TYPES.COLUMN_VIEW">
+              <mat-icon class="rotate-90">menu</mat-icon>
+            </mat-button-toggle>
+            <!-- </div> -->
+            <!-- <div class="toggle-action-row"> -->
+            <mat-button-toggle [value]="VIEW_TYPES.ROW_VIEW">
+              <mat-icon>menu</mat-icon>
+            </mat-button-toggle>
+            <!-- </div> -->
+
+          </mat-button-toggle-group>
+        </div>
+        <div class="action-item">
+          <button mat-stroked-button class="block-btn" color="primary" (click)="openSearchForm()" >SEARCH RECORD</button>
+        </div>
+        <div class="action-item">
+          <button mat-raised-button color="primary" class="action-menus" [matMenuTriggerFor]="recordMatchActions">ACTION
+            <mat-icon>keyboard_arrow_down</mat-icon></button>
+          <mat-menu #recordMatchActions="matMenu">
+            <button mat-menu-item (click)="onActionClick()">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="showSearchView()">
+              <mat-icon>delete_outline</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item (click)="onActionClick()">
+              <mat-icon>add</mat-icon>
+              <span>Create</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="record-match-page-content">
+
+      <div class="record-match-area">
+        <div class="record">
+          <div class="record-header">
+            <span>Created: 08/17/2018 04:51 by Angel</span>
+          </div>
+          <div class="record-content">
+            <div class="record-item">
+              <div class="innter-item flex-row">
+                <span class="flex-row record-title">The Industry</span>
+                <span class="flex-row right">
+                  <mat-icon>outlined_flag</mat-icon>
+                </span>
+              </div>
+              <mat-chip-list class="innter-item">
+                <mat-chip>UNVERIFIED</mat-chip>
+              </mat-chip-list>
+              <br />
+              <button mat-stroked-button class="block-btn innter-item" color="primary">CREATE NEW RECORD</button>
+              <ul class="innter-item">
+                <li>Episode</li>
+              </ul>
+            </div>
+            <div class="record-item" [ngClass]="{'showData':vissibleKeys['Type']==true||vissibleKeys['Type']=='initial','hideData':vissibleKeys['Type']==false}">
+              <ul>
+                <li><span class="title">Season:</span><span class="value">{{recordValToBeMatched.Season}}</span></li>
+                <li><span class="title">Episode:</span><span class="value">{{recordValToBeMatched.Episode}}</span></li>
+              </ul>
+            </div>
+            <div class="record-item" [ngClass]="{'showData':vissibleKeys['SeriesMasterValue']==true||vissibleKeys['SeriesMasterValue']=='initial','hideData':vissibleKeys['SeriesMasterValue']==false}">
+              <ul>
+                <li><span class="title">Series Master:</span><span class="value">{{recordValToBeMatched.SeriesMasterValue}}</span></li>
+              </ul>
+            </div>
+            <div class="record-item desc" [ngClass]="{'showData':vissibleKeys['Description']==true||vissibleKeys['Description']=='initial','hideData':vissibleKeys['Description']==false}">
+              <p>{{recordValToBeMatched.Description}}</p>
+            </div>
+            <div class="record-item" [ngClass]="{'showData':vissibleKeys['Duration']==true||vissibleKeys['Duration']=='initial','hideData':vissibleKeys['Duration']==false}">
+              <ul>
+                <li><span class="title">Duration:</span><span class="value">{{recordValToBeMatched.Duration}}</span></li>
+              </ul>
+            </div>
+            <div class="record-item" [ngClass]="{'showData':vissibleKeys['ReleaseYear']==true||vissibleKeys['ReleaseYear']=='initial','hideData':vissibleKeys['ReleaseYear']==false}">
+              <ul>
+                <li><span class="title">ReleaseYear:</span><span class="value">{{recordValToBeMatched.ReleaseYear}}</span></li>
+              </ul>
+            </div>
+            <div class="record-item" [ngClass]="{'showData':vissibleKeys['Language']==true||vissibleKeys['Language']=='initial','hideData':vissibleKeys['Language']==false}">
+              <ul>
+                <li><span class="title">Language:</span><span class="value">{{recordValToBeMatched.Language}}</span></li>
+                <li><span class="title">Original Language:</span><span class="value">{{recordValToBeMatched.ReleaseType}}</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="record no-border match-title">
+          <div class="record-content">
+            <div class="record-item no-border">
+              <div class="innter-item flex-row">
+                <div class="record-item no-border show-all-btn">
+                  <button mat-stroked-button class="block-btn" color="primary" (click)="formVissibleKeysObject(keys)">Show
+                    All Details</button>
+                </div>
+                <br />
+                <br />
+                <span class="flex-row">Record Title</span>
+              </div>
+              <div class="innter-item flex-row">
+                <span class="flex-row">Match Score</span>
+              </div>
+              <br />
+              <br />
+              <br />
+              <div class="innter-item flex-row">
+                <span class="flex-row">Record Type</span>
+              </div>
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" [ngClass]="{'selected':vissibleKeys['Type']==true}" color="primary"
+                (click)="getFilterValue('Type')">Details</button>
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" [ngClass]="{'selected':vissibleKeys['SeriesMasterValue']==true}"
+                color="primary" (click)="getFilterValue('SeriesMasterValue')">Series
+                Master</button>
+            </div>
+            <div class="record-item no-border">
+              <br />
+              <br />
+              <button mat-stroked-button class="block-btn" [ngClass]="{'selected':vissibleKeys['Description']==true}"
+                color="primary" (click)="getFilterValue('Description')">Description</button>
+              <br />
+              <br />
+              <br />
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" [ngClass]="{'selected':vissibleKeys['Duration']==true}"
+                color="primary" (click)="getFilterValue('Duration')">Duration</button>
+              <br />
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" [ngClass]="{'selected':vissibleKeys['ReleaseYear']==true}"
+                color="primary" (click)="getFilterValue('ReleaseYear')">ReleaseYear</button>
+              <br />
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" [ngClass]="{'selected':vissibleKeys['Language']==true}"
+                color="primary" (click)="getFilterValue('Language')">Language</button>
+              <br />
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" color="primary">Cast & Crew</button>
+              <br />
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" color="primary">Genres</button>
+              <br />
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" color="primary">Provider</button>
+              <br />
+            </div>
+            <div class="record-item no-border">
+              <button mat-stroked-button class="block-btn" color="primary">Notes</button>
+              <br />
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+
+
+        <div class="records-matched" *ngIf="viewType==VIEW_TYPES.COLUMN_VIEW">
+          <div class="records-holder">
+            <div class="record match-item" *ngFor="let item of items; index as i;">
+              <div class="record-header">
+                <span class="item">
+                  <span class="title">Cosmo ID:</span><span class="value">{{item.Cosmo}}</span>
+                </span>
+                <span class="item">
+                  <span class="title">RV:</span><span class="value">{{item.RV}}</span>
+                </span>
+              </div>
+              <div class="record-content">
+                <div class="record-item">
+                  <div class="innter-item flex-row">
+                    <span class="flex-row record-title">{{item.Title.value}}</span>
+                  </div>
+                  <mat-chip-list class="innter-item">
+                    <mat-chip [ngClass]="{'success-chip':(item.MatchScore>=80), 'warn-chip':((item.MatchScore>=60 && item.MatchScore<80)) , 'alert-chip':(item.MatchScore<60) }">
+                      {{item.MatchScore}}%
+                      Match</mat-chip>
+                  </mat-chip-list>
+                  <br />
+                  <button mat-stroked-button class="block-btn innter-item selected">MATCH RECORD</button>
+                  <ul class="innter-item">
+                    <li>{{item.Type.value}}</li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['Type']==true||vissibleKeys['Type']=='initial','hideData':vissibleKeys['Type']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'Season')"><span class="title">Season:</span><span class="value">{{item.Season.value}}</span></li>
+                    <li [ngClass]="getBulletColorCode(item,'Episode')"><span class="title">Episode:</span><span class="value">{{item.Episode.value}}</span></li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['SeriesMasterValue']==true||vissibleKeys['SeriesMasterValue']=='initial','hideData':vissibleKeys['SeriesMasterValue']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'SeriesMasterValue')"><span class="title">Series Master:</span><span
+                        class="value">{{item.SeriesMasterValue.value}}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="record-item desc" [ngClass]="{'showData':vissibleKeys['Description']==true||vissibleKeys['Description']=='initial','hideData':vissibleKeys['Description']==false}">
+                  <div class="desc-row">
+                    <ul>
+                      <li [ngClass]="getBulletColorCode(item,'Description')">
+                        <p>{{item.Description.value}}</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['Duration']==true||vissibleKeys['Duration']=='initial','hideData':vissibleKeys['Duration']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'Duration')"><span class="title">Duration:</span><span class="value">{{item.Duration.value}}</span></li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['ReleaseYear']==true||vissibleKeys['ReleaseYear']=='initial','hideData':vissibleKeys['ReleaseYear']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'ReleaseYear')"><span class="title">ReleaseYear:</span><span
+                        class="value">{{item.ReleaseYear.value}}</span></li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['Language']==true||vissibleKeys['Language']=='initial','hideData':vissibleKeys['Language']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'Language')"><span class="title">Language:</span><span class="value">{{item.Language.value}}</span></li>
+                    <li [ngClass]="getBulletColorCode(item,'ReleaseType')"><span class="title">Original Language:</span><span
+                        class="value">{{item.ReleaseType.value }}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-record-chooser-wrapper" *ngIf="searchView">
+              <div class="medium-font">
+                <div class="record-row-header txt-center">
+                  <span class="row-title">No other Matches Found!</span>
+                </div>
+                <div class="link-btn txt-right adv-serch-btn"> <button mat-button (click)="openSearchForm()">
+                    Advanced Search
+                  </button></div>
+                <mat-card>
+                  <div>
+                    <div class="no-match-row-content-heading">
+                      Not a match?
+                    </div>
+                    <div>
+                      Are the records shown not a match?<br />
+                      Try doing a <span class="link-btn "> <button mat-button (click)="openSearchForm()">
+                          search by Record Title.
+                        </button></span>
+                    </div>
+                  </div>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+          <div class="records-navigator" *ngIf="data.length>4">
+            <span class="flex-left">{{data.length}} Matches</span>
+            <span class="flex-right">
+              <button mat-icon-button (click)="showPrevSetOfRecords()" [disabled]="disablePagination">
+                <mat-icon aria-label="Previous">keyboard_arrow_left</mat-icon>
+              </button>
+              <button mat-icon-button (click)="showNextSetOfRecords()" [disabled]="disablePagination">
+                <mat-icon aria-label="Next">keyboard_arrow_right</mat-icon>
+              </button>
+            </span>
+          </div>
+
+        </div>
+
+        <div class="records-matched" *ngIf="viewType==VIEW_TYPES.ROW_VIEW">
+
+          <div class="records-holder">
+            <div class="record match-item" *ngFor="let item of items; index as i;">
+              <div class="record-header">
+                <span class="item">
+                  <span class="title">Cosmo ID:</span><span class="value">{{item.Cosmo}}</span>
+                </span>
+                <span class="item">
+                  <span class="title">RV:</span><span class="value">{{item.RV}}</span>
+                </span>
+              </div>
+              <div class="record-content">
+                <div class="record-item">
+                  <div class="innter-item flex-row">
+                    <span class="flex-row record-title">{{item.Title.value}}</span>
+                  </div>
+                  <mat-chip-list class="innter-item">
+                    <mat-chip [ngClass]="{'success-chip':(item.MatchScore>=80), 'warn-chip':((item.MatchScore>=60 && item.MatchScore<80)) , 'alert-chip':(item.MatchScore<60) }">
+                      {{item.MatchScore}}%
+                      Match</mat-chip>
+                  </mat-chip-list>
+                  <br />
+                  <button mat-stroked-button class="block-btn innter-item selected">MATCH RECORD</button>
+                  <ul class="innter-item">
+                    <li>{{item.Type.value}}</li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['Type']==true||vissibleKeys['Type']=='initial','hideData':vissibleKeys['Type']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'Season')"><span class="title">Season:</span><span class="value">{{item.Season.value}}</span></li>
+                    <li [ngClass]="getBulletColorCode(item,'Episode')"><span class="title">Episode:</span><span class="value">{{item.Episode.value}}</span></li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['SeriesMasterValue']==true||vissibleKeys['SeriesMasterValue']=='initial','hideData':vissibleKeys['SeriesMasterValue']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'SeriesMasterValue')"><span class="title">Series Master:</span><span
+                        class="value">{{item.SeriesMasterValue.value}}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="record-item desc" [ngClass]="{'showData':vissibleKeys['Description']==true||vissibleKeys['Description']=='initial','hideData':vissibleKeys['Description']==false}">
+                  <div class="desc-row">
+
+                    <ul>
+                      <li [ngClass]="getBulletColorCode(item,'Description')">
+                        <p>{{item.Description.value}}</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['Duration']==true||vissibleKeys['Duration']=='initial','hideData':vissibleKeys['Duration']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'Duration')"><span class="title">Duration:</span><span class="value">{{item.Duration.value}}</span></li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['ReleaseYear']==true||vissibleKeys['ReleaseYear']=='initial','hideData':vissibleKeys['ReleaseYear']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'ReleaseYear')"><span class="title">ReleaseYear:</span><span
+                        class="value">{{item.ReleaseYear.value}}</span></li>
+                  </ul>
+                </div>
+                <div class="record-item" [ngClass]="{'showData':vissibleKeys['Language']==true||vissibleKeys['Language']=='initial','hideData':vissibleKeys['Language']==false}">
+                  <ul>
+                    <li [ngClass]="getBulletColorCode(item,'Language')"><span class="title">Language:</span><span class="value">{{item.Language.value}}</span></li>
+                    <li [ngClass]="getBulletColorCode(item,'ReleaseType')"><span class="title">Original Language:</span><span
+                        class="value">{{item.ReleaseType.value }}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row-record-chooser-wrapper" *ngIf="!searchView">
+              <div class="record-row-header">
+                <span class="row-title">All Matches</span>
+                <span class="row-title txt-right">Total: {{rowItems.length}} Matches</span>
+              </div>
+              <div class="row-items-action">
+                <button mat-button class="link-btn" (click)="changeToColumnView()">Compare All</button>
+              </div>
+              <div class="records-row-view">
+                <div class="record" *ngFor="let item of rowItems; index as i;" [ngClass]="{'high-light':rowViewMainItem.Cosmo==item.Cosmo}" (click)="selectedRowRecord(item)">
+                  <div class="record-content">
+                    <div class="record-item">
+                      <div class="innter-item flex-row">
+                        <span class="flex-row record-title">{{item.Title.value}} </span>
+                      </div>
+                      <mat-chip-list class="innter-item">
+                        <mat-chip [ngClass]="{'success-chip':(item.MatchScore>=80), 'warn-chip':((item.MatchScore>=60 && item.MatchScore<80)) , 'alert-chip':(item.MatchScore<60) }">
+                          {{item.MatchScore}}%
+                          Match</mat-chip>
+                      </mat-chip-list>
+                    </div>
+                  </div>
+                  <div class="record-footer">
+                    <span class="item">
+                      <span class="title">Cosmo ID:</span><span class="value">{{item.Cosmo}}</span>
+                    </span>
+                    <span class="item">
+                      <span class="title">RV:</span><span class="value">{{item.RV}}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-record-chooser-wrapper medium-font" *ngIf="searchView">
+              <div class="record-row-header txt-center">
+                <span class="row-title">No other Matches Found!</span>
+              </div>
+              <div class="link-btn txt-right adv-serch-btn"> <button mat-button (click)="openSearchForm()">
+                  Advanced Search
+                </button></div>
+              <mat-card>
+                <div>
+                  <div class="no-match-row-content-heading">
+                    Not a match?
+                  </div>
+                  <div>
+                    Are the records shown not a match?<br />
+                    Try doing a <span class="link-btn "> <button mat-button (click)="openSearchForm()">
+                        search by Record Title.
+                      </button></span>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+            <div class="records-navigator" *ngIf="items.length > 1">
+              <span class="flex-left">{{data.length}} Matches</span>
+              <span class="flex-right">
+                <button mat-icon-button (click)="showPrevSetOfRecords()" [disabled]="disablePagination">
+                  <mat-icon aria-label="Previous">keyboard_arrow_left</mat-icon>
+                </button>
+                <button mat-icon-button (click)="showNextSetOfRecords()" [disabled]="disablePagination">
+                  <mat-icon aria-label="Next">keyboard_arrow_right</mat-icon>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

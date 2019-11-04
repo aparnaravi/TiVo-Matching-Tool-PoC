@@ -1,0 +1,393 @@
+<!-- <app-inbox-header [viewDetails]='recordDetails'></app-inbox-header> -->
+<div class="record-details-main-content">
+  <app-bread-crumb [breadCrumbFor]="RecordId"></app-bread-crumb>
+
+  <div class="alert-row-content">
+
+    <div class="alert-action"><button mat-button>
+        <mat-icon>error_outline</mat-icon>
+      </button> Immediate Action Required!</div>
+    <div class="alert-timeDisplay"> Program airs in 1 hour!
+      <button mat-button (click)="goToRecordMatch()">Verify Match</button></div>
+
+  </div>
+  <div class="record-details-sub-content">
+    <div class="record-match-action-bar">
+      <div class="record-actions-holder left">
+        <div class="action-item title">
+          <mat-icon>access_time</mat-icon> Bound
+        </div>
+        <div class="action-item"><span class="title">Status: </span><span class="value">Unverified</span></div>
+        <div class="action-item"><span class="title">Matches: </span><span class="value">4</span></div>
+      </div>
+      <div class="record-actions-holder right">
+        <div class="action-item action-buttons-container">
+          <button mat-stroked-button color="primary">SHARE</button>
+          <button mat-raised-button class="raised-btn" color="primary" (click)="goToRecordMatch()">VIEW MATCHES</button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content-wrapper">
+      <div class="record-area-heading">
+        <span class="main-heading">Incoming Record</span><br /><br />
+        <span class="sub-heading">Episode</span>
+      </div>
+
+      <div class='info-page-wrapper'>
+        <div class='row'>
+          <div class='left-column'>
+            <mat-card class="card">
+              <div class="card-heading">Administration Information</div>
+              <div class="card-info">
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Record Number</span><br />
+                    <span class="info-content">3232434</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Provider Number</span><br />
+                    <span class="info-content">5566996680</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Cosmos Number</span><br />
+                    <span class="info-content">34387438</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Parent Gid</span><br />
+                    <span class="info-content">100167</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Created</span><br />
+                    <span class="info-content">08/27/18 04:51pm</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Provider</span><br />
+                    <span class="info-content">TARA HD</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Created by</span><br />
+                    <span class="info-content">dmukka</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Air Date/Time</span><br />
+                    <span class="info-content">Today/03:00pm</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <button mat-raised-button class="raised-btn" color="primary">CREATE NEW RECORD</button>
+
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+            <mat-card class="card">
+              <div class="card-heading">Pinned Notes</div>
+              <div class="card-info">
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Record Number</span><br />
+                    <span class="info-content">3232434</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Provider Number</span><br />
+                    <span class="info-content">5566996680</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Cosmos Number</span><br />
+                    <span class="info-content">34387438</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Parent Gid</span><br />
+                    <span class="info-content">100167</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Created</span><br />
+                    <span class="info-content">08/27/18 04:51pm</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Provider</span><br />
+                    <span class="info-content">TARA HD</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <span class="info-heading">Created by</span><br />
+                    <span class="info-content">dmukka</span>
+                  </div>
+                  <div>
+                    <span class="info-heading">Air Date/Time</span><br />
+                    <span class="info-content">Today/03:00pm</span>
+                  </div>
+                </div>
+                <div class="row-content">
+                  <div>
+                    <button mat-raised-button class="raised-btn" color="primary">CREATE NEW RECORD</button>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+          <div class='right-column'>
+            <mat-tab-group id="recordDetailsTab">
+              <mat-tab label="Details">
+                <mat-card>
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div>
+                        <span class="info-heading">Series Title</span><br />
+                        <span class="info-content">The Kapil Sharma</span>
+                      </div>
+                      <div>
+                        <span class="info-heading">Duration</span><br />
+                        <span class="info-content">--</span>
+                      </div>
+                    </div>
+                    <div class="row-content">
+                      <div>
+                        <span class="info-heading">Program Type</span><br />
+                        <span class="info-content">Episode</span>
+                      </div>
+                      <div>
+                        <span class="info-heading">Genere</span><br />
+                        <span class="info-content">Talk Show</span>
+                      </div>
+                    </div>
+                    <div class="row-content">
+                      <div>
+                        <span class="info-heading">Series Title</span><br />
+                        <span class="info-content">The Kapil Sharma Show</span>
+                      </div>
+                      <div>
+                        <span class="info-heading">Original Language</span><br />
+                        <span class="info-content">--</span>
+                      </div>
+                    </div>
+                    <div class="row-content">
+                      <div>
+                        <span class="info-heading">Season Number</span><br />
+                        <span class="info-content">1</span>
+                      </div>
+                      <div>
+                        <span class="info-heading">Director</span><br />
+                        <span class="info-content">--</span>
+                      </div>
+                    </div>
+                    <div class="row-content">
+                      <div>
+                        <span class="info-heading">Episode Number</span><br />
+                        <span class="info-content">1</span>
+                      </div>
+                      <div>
+                        <span class="info-heading">Producer</span><br />
+                        <span class="info-content">--</span>
+                      </div>
+
+                    </div>
+                    <div class="row-content">
+                      <div>
+                        <span class="info-heading">Description</span><br />
+                        <p class="info-content">Kapil Sharma Show revolves around Kapil Sharma and his team of
+                          comedians,
+                          including Sumona Chakravarti, Kiku Sharda, Chandan Prabhakar and Rochelle Rao, who play
+                          residents
+                          of the Shantivan Non-cooperative Housing Society. </p>
+
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-tab>
+              <mat-tab label="SeriesMaster">
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Incoming Record # was flagged URGENT <span class="light-font">due to bound scheduling<br>Dec
+                            23
+                            at 5:55 PM EST</span></p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row-content">
+                      <span class="action-desc">Admin alerted to take action</span>
+                      <span><button mat-button class="view-match">VIEW MATCHES</button>
+                      </span>
+                    </div>
+                  </div>
+                </mat-card>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Incoming Record # was auto linked to SeriesMasterName<br><span class="light-font">Dec 23 at
+                            1:05 AM PST</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Incoming Record # was added to database from ProviderName<br><span class="light-font">Dec 23
+                            at 1:04 AM PST</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-tab>
+              <mat-tab label="Activity">
+                <div class="activity-heading">December 2018</div>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Incoming Record # was flagged URGENT <span class="light-font">due to bound scheduling<br>Dec
+                            23
+                            at 5:55 PM EST</span></p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row-content">
+                      <span class="action-desc">Admin alerted to take action</span>
+                      <span><button mat-button class="view-match">VIEW MATCHES</button>
+                      </span>
+                    </div>
+                  </div>
+                </mat-card>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Incoming Record # was auto linked to SeriesMasterName<br><span class="light-font">Dec 23 at
+                            1:05 AM PST</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Incoming Record # was added to database from ProviderName<br><span class="light-font">Dec 23
+                            at 1:04 AM PST</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+              </mat-tab>
+              <mat-tab label="Notes">
+                <div class="notes-content">
+                <div class="row-content">
+                  <div class="activity-heading">December 2018</div>
+                  <div class="filter">
+                    <button mat-button color="primary">New Note<mat-icon class="edit-icon">edit</mat-icon></button>
+                  </div>
+                </div>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Angel Merced left a note about this Record<br /> <span class="light-font">Dec 23
+                            at 5:55 PM EST</span></p>
+                      </div>
+                      <div class="card-action-buttons">
+                        <span class="edit-action"><button mat-button>Edit</button></span>
+                        <span class="divider"><button mat-button>Actions</button></span>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row-content">
+                      <span class="action-desc">This content is for reference only*</span>
+
+                    </div>
+                  </div>
+                </mat-card>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Angel Merced left a note about this Record<br /> <span class="light-font">Dec 23
+                            at 5:55 PM EST</span></p>
+                      </div>
+                      <div class="card-action-buttons">
+                        <span class="edit-action"><button mat-button>Edit</button></span>
+                        <span class="divider"><button mat-button>Actions</button></span>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row-content">
+                      <span class="action-desc">This content is for reference only*</span>
+
+                    </div>
+                  </div>
+                </mat-card>
+                <div class="activity-heading">November 2018</div>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Angel Merced left a note about this Record<br /> <span class="light-font">Dec 23
+                            at 5:55 PM EST</span></p>
+                      </div>
+                      <div class="card-action-buttons">
+                        <span class="edit-action"><button mat-button>Edit</button></span>
+                        <span class="divider"><button mat-button>Actions</button></span>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row-content">
+                      <span class="action-desc">This content is for reference only*</span>
+
+                    </div>
+                  </div>
+                </mat-card>
+                <mat-card class="card">
+                  <div class="card-info">
+                    <div class="row-content">
+                      <div class="sub-heading">
+                        <p>Angel Merced left a note about this Record<br />
+                          <span class="light-font">Dec 23
+                            at 5:55 PM EST</span></p>
+                      </div>
+
+                      <div class="card-action-buttons">
+                        <span class="edit-action"><button mat-button>Edit</button></span>
+                        <span class="divider"><button mat-button>Actions</button></span>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="row-content">
+                      <span class="action-desc">This content is for reference only*</span>
+
+                    </div>
+                  </div>
+                </mat-card>
+              </div>
+              </mat-tab>
+              <mat-tab disabled>
+                <ng-template mat-tab-label>
+                  <button mat-stroked-button color="primary" (click)="onDownloadClick()">DOWNLOAD</button>
+                </ng-template>
+              </mat-tab>
+            </mat-tab-group>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

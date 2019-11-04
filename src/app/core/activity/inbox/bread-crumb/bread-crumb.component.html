@@ -1,0 +1,15 @@
+<div>
+  <span class="bread-crumb">
+   <button mat-button (click)="goToActivity()">
+      Activity
+    </button>
+    <button mat-button>
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <button mat-button *ngIf="currentRecordId!=undefined && currentRecordId!='' && breadCrumbFor=='record'">Record
+      #{{currentRecordId}}</button>
+    <button mat-button *ngIf="currentRecordId!=undefined && currentRecordId!='' && breadCrumbFor=='Angel Merced'">{{breadCrumbFor}}</button>
+  </span>
+
+
+</div>

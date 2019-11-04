@@ -1,0 +1,12 @@
+[{
+    "context": [
+      "**/*.wcp",
+      "/otdsws/**",
+      "**/app/entityRestService/**",
+      "/otmm/**",
+      "/otmmapi/**"
+    ],
+    "target": "http://somedomain",
+    "secure": false
+  }
+]

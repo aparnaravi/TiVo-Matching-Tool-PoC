@@ -1,0 +1,48 @@
+<div class="app-container">
+  <div class="flex-col">
+    <mat-toolbar class="app-toolbar" [ngClass]="{'miniHeader': (!isLoggedIn==true) ? true : false}">
+      <div class="flex-col">
+        <div class="flex-row">
+          <div class="flex-row">
+            <div class="flex-app-brand app-logo">
+              <img src="assets/logo.png" /><span class="app-name">{{ !isLoggedIn ? 'BLACKSTAR' : 'Matching Tool'}}</span>
+            </div>
+            <div class="flex-g-xs" *ngIf="isLoggedIn">
+              <span class="header-action notf-shown" matTooltip="Search">
+                <mat-icon>search</mat-icon>
+              </span>
+              <span class="header-action notf-shown" matTooltip="Help">
+                <mat-icon>help_outline</mat-icon>
+              </span>
+              <span class="header-action" *ngIf="!notificationShown" matTooltip="Notifications">
+                <mat-icon matBadge="2" matBadgeColor="warn" (click)="showNotification($event)">notifications_none
+                </mat-icon>
+              </span>
+              <span class="header-action notf-shown" *ngIf="notificationShown" matTooltip="Notifications">
+                <mat-icon (click)="showNotification($event)">notifications_none</mat-icon>
+              </span>
+            </div>
+            <div class="divider flex-profile-section">
+              <span *ngIf="!isLoggedIn">Matching Tool</span>
+              <span class="user-details" *ngIf="isLoggedIn">
+                <span>Welcome</span><br />
+                <span class="user-name">Angel Merced</span>
+              </span>
+            </div>
+            <div class="profile" matTooltip="Profile" *ngIf="isLoggedIn">
+              <app-profile></app-profile>
+            </div>
+          </div>
+        </div>
+        <div class="flex-col">
+          <div class="flex-row header-buttons" *ngIf="isLoggedIn">
+            <mat-nav-list>
+              <a matRipple class="menu-item" [routerLink]="'/app/blackstar/'+menu.location" routerLinkActive="active"
+                *ngFor="let menu of menus">{{menu.name}}</a>
+            </mat-nav-list>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+  </div>
+</div>

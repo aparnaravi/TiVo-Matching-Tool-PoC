@@ -1,0 +1,54 @@
+@import './app-theme';
+// $app-font: Avenir LT Std Roman,Roboto, sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+  // font-family: $app-font;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.rounded {
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+}
+
+/* Scroll Bar CSS */
+::-webkit-scrollbar {
+  width: 4px;
+  /* for vertical scrollbars */
+  height: 8px;
+  /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+

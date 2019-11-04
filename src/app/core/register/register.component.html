@@ -1,0 +1,46 @@
+<div class="login-container">
+  <mat-card>
+    <div class="mat-card-custom-header">
+      <div class="heading-container">
+        <span class="login-heading">Matching Tool</span>
+        <p class="sub-heading">Create Your Account</p>
+        <p class="sub-heading">Already have an account? <button class="loginBtn" mat-button (click)="goToLogin()">Login</button>
+        </p>
+      </div>
+    </div>
+    <mat-card-content color="primary">
+      <form autocomplete="off" [formGroup]="registerFormGroup" novalidate #formDirective="ngForm" *ngIf="registerFormGroup">
+        <div class="flex-row">
+          <mat-form-field class="login-form-field" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" placeholder="First Name" formControlName="firstName" />
+          </mat-form-field>
+          <mat-form-field class="login-form-field" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" placeholder="Last Name" formControlName="lastName" />
+          </mat-form-field>
+        </div>
+        <div class="flex-row">
+          <mat-form-field class="login-form-field" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="Email" formControlName="email" />
+            <mat-hint>Use your work email address if you're a TiVo employee</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="flex-row">
+          <mat-form-field class="login-form-field" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter your password" [type]="hidePassword ? 'password' : 'text'"
+              formControlName="password">
+            <mat-icon class="showpswd" matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ?
+              'visibility_off'
+              : 'visibility'}}</mat-icon>
+          </mat-form-field>
+        </div>
+        <mat-grid-list cols="12" class="login-action">
+          <button  class="login-button" mat-raised-button color="primary" (click)="goToLogin()">REGISTER</button>
+        </mat-grid-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,112 @@
+@import '../../../sass/variables';
+
+.header-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    flex-flow: row wrap;
+
+    .header-heading {
+        flex: 1;
+        padding-left: 3%;
+        padding-top: 2%;
+    }
+
+    .header-filter {
+        text-align: right;
+        padding-right: 3%;
+        padding-bottom: 2%;
+    }
+}
+.close-icon{
+    float: right;
+    cursor: pointer;
+    mat-icon{
+        font-size:20px!important;
+    }
+}
+.notf-main-header {
+    background-color: $primary-color;
+    color: $primary-color-text;
+    height: 70px;
+    padding: 8% 2% 0% 2%;
+}
+
+h1 {
+    mat-icon {
+        float: right;
+        cursor: pointer;
+    }
+}
+
+/deep/ .mat-dialog-container {
+    padding: 0px !important;
+    overflow-x: hidden !important;
+}
+
+.notification-content {
+    max-height: 1200px;
+    overflow-y: auto;
+}
+
+.ntf-row-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-flow: row wrap;
+
+    div.card-heading {
+        flex: 1;
+        padding-top: 2px;
+        padding-left: 14px;
+    }
+
+    div.ntf-date {
+        color:$divider-color;
+    }
+    .error{
+        color:$warn-color;
+    }
+
+}
+.row-notf-content{
+    height:165px;
+}
+.row-data{
+    width: 73%;
+    margin-left:10%;
+    margin-bottom: 10px;
+}
+.notf-action-btn, .notf-action-btn button{
+    width:100%;
+       background-color: $accent-color;
+}
+/deep/ .notf-action-btn span{
+    color:$primary-color-text
+}
+mat-card{
+    box-shadow: none!important;
+}
+.no-notf-icon{
+    text-align: center;
+    margin-top: 130px;
+}
+.no-notf-icon mat-icon{
+    height: 85px;
+    width: 100px;
+    font-size: 75px;
+    color:$divider-color
+
+}
+.no-notf-content{
+    text-align: center;
+    color:$divider-color
+}
+.animate
+{
+    height: 0px;
+    transition: height 1s ease;
+}

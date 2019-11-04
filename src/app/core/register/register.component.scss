@@ -1,0 +1,67 @@
+@import '../../../sass/variables';
+
+.login-container {
+    height: 100%;
+    width: 100%;
+}
+.sub-heading{
+    color: $secondary-text-color
+   }
+.login-container mat-card {
+    text-align: center;
+    // width: 500px;
+    margin: 9% auto;
+    width: 40%;
+
+}
+.loginBtn{
+    color:$accent-color
+}
+.login-heading
+{
+    font-size: 35px;
+    margin-bottom:10px;
+}
+.login-container .login-form-field,
+.login-button{
+    width: 100%;
+}
+::ng-deep .login-button span{
+    color:$primary-color-text;
+  }
+.login-container .login-action {
+  margin: 15px 0 25px 0;
+}
+.mat-card{
+    box-shadow: none!important;
+  }
+.heading-container{
+    line-height: 40px;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-flow: row wrap;
+
+  }
+
+  .flex-row mat-form-field {
+    flex-basis:50%;
+    padding-top: 2%;
+    box-sizing: border-box;
+    flex:1;
+  }
+
+  @media(min-width:503px)
+  {
+    .flex-row mat-form-field:nth-child(2)
+    {
+        padding-left: 10px;
+    }
+  }
+  .showpswd{
+      cursor: pointer;
+  }
+

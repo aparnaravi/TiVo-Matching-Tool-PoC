@@ -1,0 +1,68 @@
+@import '../../../../sass/variables';
+
+.assignment-container {
+    height: 100%;
+    width: 100%;
+}
+.sub-heading{
+    color: $secondary-text-color
+   }
+.assignment-container mat-card {
+    text-align: center;
+    margin: 12% auto;
+    width:60%
+}
+.login-heading
+{
+    font-size: 35px;
+    margin-bottom:10px;
+}
+.assignment-container .login-form-field,
+.login-button{
+    width: 100%;
+}
+.span-heading{
+    font-size:13px;
+}
+.assignment-container .login-action {
+  margin: 15px 0 25px 0;
+}
+
+.heading-container{
+    line-height: 30px;
+}
+
+.show-info{
+    margin: 5% auto;
+    border: 1px solid $secondary-text-color;
+    width:69%;
+}
+
+.mat-card{
+    box-shadow: none!important;
+}
+.container
+{
+    color:$secondary-text-color;
+    margin: 20px!important;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+.container div:nth-child(1), .container div:nth-child(2){
+    flex:1;
+}
+.container div:last-child{
+    flex:3;
+}
+.action-btn
+{
+    color: $accent-color;
+    margin-top: 30px;
+}
+
+::ng-deep .cont-button span{
+    color:$primary-color-text;
+}

@@ -1,0 +1,23 @@
+<div class="assignment-container">
+  <mat-card>
+    <div class="mat-card-custom-header">
+      <div class="heading-container">
+        <span class="login-heading">Welcome Back</span>
+        <p class="sub-heading">It looks like you already have an assignment.</p>
+      </div>
+    </div>
+    <div class="show-info">
+      <div class="container">
+        <div><span class="span-heading">Provider</span>
+          <p>ASTRO</p>
+        </div>
+        <div><span class="span-heading">Section Status</span>
+          <p>Unmatched</p>
+        </div>
+        <div><button class="cont-button" mat-raised-button color="primary" (click)="gotToRecordMatch()">CONTINUE</button>
+        </div>
+      </div>
+    </div>
+    <div class="action-btn"><button mat-button (click)="goToNewAssignment()">Start a new assignment</button></div>
+  </mat-card>
+</div>

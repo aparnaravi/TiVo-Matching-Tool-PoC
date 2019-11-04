@@ -1,0 +1,120 @@
+@import '../../../../sass/variables';
+@import '../../../../sass/app-theme';
+.assignment-container {
+    height: 700px;
+    width: 100%; // margin-top: 10%;
+    overflow: auto
+}
+
+.sub-heading {
+    color: $secondary-text-color
+}
+.content{
+    overflow: hidden;
+}
+.assignment-container mat-card {
+    text-align: center;
+    margin: 3% auto;
+    width: 35%;
+}
+.resendBtn{
+    color:$accent-color
+}
+.login-heading {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.assignment-container .login-form-field {
+    width: 100%;
+}
+
+.assignment-container .login-action {
+    margin: 15px 0 25px 0;
+}
+
+.heading-container {
+    line-height: 40px;
+}
+
+.show-info {
+    margin-top: 40px !important;
+    border: 2px solid gray;
+    height: 86px;
+    width: 706px;
+}
+
+.assignment-card {
+    width: 600px;
+}
+
+.container {
+    color: $secondary-text-color;
+    margin: 20px !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.container div:nth-child(1),
+.container div:nth-child(2) {
+    flex: 1;
+}
+::ng-deep .login-button span{
+    color:$primary-color-text;
+  }
+.container div:last-child {
+    flex: 3;
+}
+
+p {
+    line-height: 1;
+}
+.mat-card{
+    box-shadow: none!important;
+}
+.instructions {
+    font-size: 13px;
+}
+
+.sub-heading p:first-child {
+    font-size: 17px;
+}
+
+.disclaimer {
+    font-size: 12px;
+}
+
+.disclaimer .mat-button {
+    font-size: 10px !important;
+}
+
+.mat-card-custom-header {
+    margin-bottom: 20px;
+}
+.login-button {
+    width: 100%;
+ }
+.form-container {
+    display: flex;
+}
+
+.form-container mat-form-field {
+    flex: 1;
+}
+
+.form-item {
+    flex: 1;
+    justify-content: flex-start
+}
+
+mat-grid-list {
+    margin-bottom: 5%;
+}
+
+
+/deep/ .form-container .mat-checkbox-checked .mat-checkbox-background{
+    background-color: $accent-color !important;
+  }
