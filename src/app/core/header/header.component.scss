@@ -9,7 +9,9 @@
     right: 0;
     height: 80px;
 }
-
+.d-none{
+    display: none !important;
+}
 .app-toolbar,
 .app-container app-register {
     margin: 0 auto !important;
@@ -25,6 +27,9 @@
     height: 125px;
     font-weight: 300;
     padding: 5px 0 0 50px;
+}
+.toolbar-hide{
+    height: 65px!important;
 }
 
 .app-toolbar.miniHeader {

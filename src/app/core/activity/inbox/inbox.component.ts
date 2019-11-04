@@ -6,6 +6,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { InboxService } from './inbox.service';
 import { CONDITIONS_FUNCTIONS } from './search-operation-constants';
 import * as utility from './utility';
+import { GloabalConfig as config } from '../../../config'
 
 @Component({
   selector: 'app-inbox',
@@ -20,6 +21,7 @@ export class InboxComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   private _filterMethods = CONDITIONS_FUNCTIONS;
+  hideToolBar: boolean;
   constructor(
     private inboxService: InboxService,
     private media: MediaMatcher,
@@ -299,6 +301,9 @@ export class InboxComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    if(config.getToolBarConfig()){
+      this.hideToolBar=true;
+  }
     this.selectedInboxConfig = this.inboxService.selectedInboxConfig;
     this.prepareInboxFields();
     this.initalizeInbox();

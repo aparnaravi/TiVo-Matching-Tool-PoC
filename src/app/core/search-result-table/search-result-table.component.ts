@@ -46,8 +46,9 @@ export class SearchResultTableComponent implements OnInit {
     private notificationService: NotificationService
 
   ) {
+
+
   }
-  
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.serachResultData.data.length;
@@ -75,7 +76,6 @@ export class SearchResultTableComponent implements OnInit {
       }
     }
   }
-
   compareSelectedRecords() {
     if (this.selectedRows.length > 0) {
       this.selectedRowEventService.getSelectedRecords(this.selectedRows);
@@ -85,12 +85,13 @@ export class SearchResultTableComponent implements OnInit {
     else {
       this.notificationService.showSnackNotification("Select atleast one record to compare")
     }
-  }
 
+
+  }
   getProperty = (obj, path) => (
+
     obj[path]
   )
-
   getObjProperty = (obj, path) => (
     obj[path].value
   )

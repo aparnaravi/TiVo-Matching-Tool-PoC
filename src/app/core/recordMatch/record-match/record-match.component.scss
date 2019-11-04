@@ -37,6 +37,10 @@
 .right {
     float: right;
 }
+.miniHeader{
+    margin: 65px 40px !important;
+}
+
 
 .rotate-90 {
     -webkit-transform: rotate(-90deg);
@@ -105,7 +109,7 @@ mat-chip.mat-standard-chip {
 .record {
     height: auto;
     flex-grow: 1;
-    min-width: 250px;
+    min-width: 234px;
     max-width: 325px;
     margin: 10px;
     font-size: 12px;
@@ -187,7 +191,7 @@ mat-chip.mat-standard-chip {
     .records-holder {
         flex-grow: 4;
         display: flex;
-        max-width: 67vw !important;
+        max-width: 58vw !important;
         overflow-x: auto !important;
 
         .record.match-item {

@@ -1,5 +1,5 @@
 <!-- <app-inbox-header [viewDetails]='recordDetails'></app-inbox-header> -->
-<div class="user-details-main-content">
+<div class="user-details-main-content" [ngClass]="{'user-detail-content':hideToolBar}">
 <app-bread-crumb [breadCrumbFor]="User"></app-bread-crumb>
 <div class="user-details-sub-content">
 <div class="record-match-action-bar">

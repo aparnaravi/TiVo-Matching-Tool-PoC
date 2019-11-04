@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
-
+import { GloabalConfig as config } from '../../config'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(config.getToolBarConfig());
     this.authService.isUserLoggedIn.next(false);
   }
 

@@ -1,4 +1,4 @@
-<div class="inbox-main-content">
+<div class="inbox-main-content" [ngClass]="{'inb-content':hideToolBar}">
   <app-bread-crumb></app-bread-crumb>
 
   <mat-drawer-container class="inbox-container" [hasBackdrop]="mobileQuery.matches ? 'true' : 'false'">

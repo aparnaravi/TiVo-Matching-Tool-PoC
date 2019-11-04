@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from '../shared/services/notification.service';
+import { GloabalConfig as config } from '../../config'
+
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -8,6 +10,7 @@ import { NotificationService } from '../shared/services/notification.service';
 })
 export class UserDetailsComponent implements OnInit {
   User='Angel Merced'
+  hideToolBar: boolean;
   constructor(
   private router: Router,
   private notificationService:NotificationService
@@ -15,6 +18,9 @@ export class UserDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(config.getToolBarConfig()){
+      this.hideToolBar=true;
+  }
   }
   goToRecordMatch()
   {

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { NotificationComponent } from '../notification/notification.component';
 import { NotificationEventService } from '../notification/notification-event.service';
 
+import { GloabalConfig as config } from '../../config'
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
     { 'name': "Manage Users", 'location': "record/User/5646909" },
     { 'name': "Record Match", 'location': "recordmatch" }
   ];
+  hideToolBar: boolean =false;
   constructor(
     private authService: AuthService,
     public dialog: MatDialog,
@@ -47,6 +49,9 @@ export class HeaderComponent implements OnInit {
 
   }
   ngOnInit() {
+    if(config.getToolBarConfig()){
+        this.hideToolBar=true;
+    }
     this.authService.isUserLoggedIn.next(true);
   }
   showNotification(event, val) {

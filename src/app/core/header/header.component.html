@@ -1,9 +1,9 @@
 <div class="app-container">
   <div class="flex-col">
-    <mat-toolbar class="app-toolbar" [ngClass]="{'miniHeader': (!isLoggedIn==true) ? true : false}">
+    <mat-toolbar class="app-toolbar" [ngClass]="{'miniHeader': (!isLoggedIn==true) ? true : false ,'toolbar-hide':hideToolBar}">
       <div class="flex-col">
         <div class="flex-row">
-          <div class="flex-row">
+          <div class="flex-row"  [ngClass]="{'d-none':hideToolBar}">
             <div class="flex-app-brand app-logo">
               <img src="assets/logo.png" /><span class="app-name">{{ !isLoggedIn ? 'BLACKSTAR' : 'Matching Tool'}}</span>
             </div>

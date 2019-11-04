@@ -2,9 +2,10 @@ import { NotificationService } from './../../shared/services/notification.servic
 import { SearchFormComponent } from './../../search-form/search-form.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
 import { SelectedRowEventService } from '../../search-result-table/selected-row-event.service';
 import { SearchTableServiceService } from '../../search-result-table/search-table-service.service';
+
+import { GloabalConfig as config } from '../../../config'
 @Component({
   selector: 'app-record-match',
   templateUrl: './record-match.component.html',
@@ -27,6 +28,7 @@ export class RecordMatchComponent implements OnInit {
   disablePagination: boolean = false;
   highLightRecord: boolean = false;
   rowViewMainItem = {};
+  hideToolBar: boolean;
   constructor(
     public dialog: MatDialog,
     private selectedRowEventService: SelectedRowEventService,
@@ -156,6 +158,10 @@ export class RecordMatchComponent implements OnInit {
     this.items = this.data.slice(0, 4);
   }
   ngOnInit() {
+
+    if(config.getToolBarConfig()){
+      this.hideToolBar=true;
+  }
     this.recordValToBeMatched = Object.assign({}, this.searchTableServiceService.recordTobematched)
     this.data = this.searchTableServiceService.displayData;
 

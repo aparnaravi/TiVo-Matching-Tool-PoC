@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
-  showAllNotifications :boolean;
-  hideFirstCard :boolean;
-  hideSecondCard :boolean;
-  hideCard :any;
+  showAllNotifications;
+  hideFirstCard;
+  hideSecondCard;
+  hideCard
   hideAll=false;
 
   constructor(
